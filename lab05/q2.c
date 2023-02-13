@@ -37,13 +37,13 @@ void heapify(int *arr,int N,int i){
     int right = 2 * i + 2;
  
     // If left child is larger than root
-    if (left < N && arr[left] > arr[largest])
+    if (left < N && arr[left] < arr[largest])
  
         largest = left;
  
     // If right child is larger than largest
     // so far
-    if (right < N && arr[right] > arr[largest])
+    if (right < N && arr[right] < arr[largest])
  
         largest = right;
  

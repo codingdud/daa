@@ -15,7 +15,6 @@ int udf(int* arr,int size){
         if(count>=size/2){
             return count;
         }
-        return 0;
     }
     
 }
