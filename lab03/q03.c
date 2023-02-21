@@ -9,13 +9,14 @@ int udf(int* arr,int size){
         for ( j = i; j < size; j++)
         {
             temp=temp+arr[j];
-        }
-        if(temp>sum){
+            if(temp>sum){
             sum=temp;
             ti =i;
             tj =j;
+            }
+           
         }
-        
+    
     }
     printf("%d %d %d",ti,tj,sum);
     
