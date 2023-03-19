@@ -3,7 +3,7 @@
 
 typedef struct wv{
     int w,v;
-    int f;
+    float f;
 }wv;
 void sortwv(wv* obj,int len){
     wv temp;
@@ -33,14 +33,14 @@ void calculatefraction(wv* obj,int len){
 void display(wv* obj,int len){
     printf("display\n");
      for(int i=0;i<len;i++){
-        printf("%d  %d  %d\n",obj[i].v,obj[i].w,obj[i].f);
+        printf("%d  %d  %f\n",obj[i].v,obj[i].w,obj[i].f);
     } 
 }
 void getvalues(wv* obj,int len){
     printf("w\tv\n");
      for(int i=0;i<len;i++){
         scanf("%d %d",&(obj+i)->w,&(obj+i)->v);
-        (obj+i)->f=(obj+i)->v/(obj+i)->w;
+        (obj+i)->f=(float)(obj+i)->v/(obj+i)->w;
     } 
 }
 void maxprofit(wv* obj,int len,int k){
@@ -55,7 +55,7 @@ void maxprofit(wv* obj,int len,int k){
     }
     if(k>0&&i>=0){
         sum=sum+k*obj[i].f;
-        printf("%d %d\n",k,k*obj[i].f);
+        printf("%d %f\n",k,k*obj[i].f);
         printf("sum=%d",sum);
     }
 

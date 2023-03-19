@@ -91,8 +91,9 @@ int main(){
     int len,c=-1;
     int* arr;
     time_t start,diff;
-    printf("enter 0 for quit\nenter 1 for create array\nenter 2 to display array\nenter 3 to sort array using heap sort\nenter 4 to sort desc\nenter 5 to display timecomplexity of sort\nenter 6 to display time complex of sorted array\nenter 7 for sorting ass to desc\nenter 8 show table\nenter 9 to show lagest number\nenter 10 to replace value \nenter 11 to insert a new element \nenter 12 to delete\n");
+    //printf("enter 0 for quit\nenter 1 for create array\nenter 2 to display array\nenter 3 to sort array using heap sort\nenter 4 to sort desc\nenter 5 to display timecomplexity of sort\nenter 6 to display time complex of sorted array\nenter 7 for sorting ass to desc\nenter 8 show table\nenter 9 to show lagest number\nenter 10 to replace value \nenter 11 to insert a new element \nenter 12 to delete\n");
     while(c){
+         printf("enter 0 for quit\nenter 1 for create array\nenter 2 to display array\nenter 3 to sort array using heap sort\nenter 4 to sort desc\nenter 5 to display timecomplexity of sort\nenter 6 to display time complex of sorted array\nenter 7 for sorting ass to desc\nenter 8 show table\nenter 9 to show lagest number\nenter 10 to replace value \nenter 11 to insert a new element \nenter 12 to delete\n");
         scanf("%d",&c);
         switch (c)
         {
