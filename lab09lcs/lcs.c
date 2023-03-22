@@ -1,5 +1,6 @@
 #include<stdlib.h>
 #include<stdio.h>
+#define DRECTION(val) val==0?'^':val==1?'<':val==2?'`':'0'
 typedef enum {top,left,diagonal,null} direction;
 typedef struct{
     char ch;
@@ -24,7 +25,7 @@ int main(){
     }
     (*arr)->value=0;
     (*arr)->dir=null;
-    (*arr)->ch='\0';
+    (*arr)->ch='0';
     for(int i=1;i<n;i++){
         (*(arr+0)+i)->ch=str1[i-1];
         (*(arr+0)+i)->value=0;
@@ -38,17 +39,17 @@ int main(){
     for(int i=1;i<m;i++){
         for(int j=1;j<n;j++){
             if((*(arr+i))->ch==(*arr+j)->ch){
-                (*(arr+i)+j)->ch='\0';
+                (*(arr+i)+j)->ch='1';
                 (*(arr+i)+j)->value=(*(arr+i-1)+j-1)->value+1;
                 (*(arr+i)+j)->dir=diagonal;
             }
-            else if((*(arr+i-1)+j)->value>=((*arr+i)+j-1)->value){
-                (*(arr+i)+j)->ch='\0';
+            else if((*(arr+i-1)+j)->value>=(*(arr+i)+j-1)->value){
+                (*(arr+i)+j)->ch='x';
                 (*(arr+i)+j)->value=(*(arr+i-1)+j)->value;
                 (*(arr+i)+j)->dir=top;
             }
             else{
-                (*(arr+i)+j)->ch='\0';
+                (*(arr+i)+j)->ch='x';
                 (*(arr+i)+j)->value=(*(arr+i)+j-1)->value;
                 (*(arr+i)+j)->dir=left;
             }
@@ -56,8 +57,8 @@ int main(){
     }
     for(int i=0;i<m;i++){
         for(int j=0;j<n;j++){
-         
-                printf("ch:%c dir:%d val:%d \t",(*(arr+i)+j)->ch,(*(arr+i)+j)->dir,(*(arr+i)+j)->value);
+            if(i==0||j==0) printf(":%c\t",(*(arr+i)+j)->ch);
+            else    printf("%c%d \t",DRECTION((*(arr+i)+j)->dir),(*(arr+i)+j)->value);
            
         }
         printf("\n");
