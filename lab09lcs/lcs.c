@@ -7,6 +7,27 @@ typedef struct{
     direction dir;
     int value;
 } cls;
+
+void print_cls(cls** arr,int m,int n){
+    //m row and n collum
+
+    if((*(arr+m)+n)->dir==null||m==0||n==0){
+        return;
+    }
+
+    else if((*(arr+m)+n)->dir==diagonal){
+        print_cls(arr,m-1,n-1);
+         printf("%c ",(*arr+n)->ch);
+    }
+    else if((*(arr+m)+n)->dir==top){
+        print_cls(arr,m-1,n);
+    }
+    else{
+         print_cls(arr,m,n-1);
+    }
+
+}
+
 int main(){
 //get two string of length mm,n
     char str1[255];
@@ -58,11 +79,11 @@ int main(){
     for(int i=0;i<m;i++){
         for(int j=0;j<n;j++){
             if(i==0||j==0) printf(":%c\t",(*(arr+i)+j)->ch);
-            else    printf("%c%d \t",DRECTION((*(arr+i)+j)->dir),(*(arr+i)+j)->value);
-           
+            else
+            printf("%c%d \t",DRECTION((*(arr+i)+j)->dir),(*(arr+i)+j)->value);
         }
         printf("\n");
     }
-
+    print_cls(arr,m-1,n-1);
 
 }
