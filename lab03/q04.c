@@ -7,7 +7,7 @@ typedef struct dynamic
 int insert(int val,dynamic *ob){
      
     int p=ob->point++;
-    while(ob->arr[p]<val&&p>=0){
+    while(p>=0&&ob->arr[p]<val){
         ob->arr[p+1]=ob->arr[p];
         p--;
     }

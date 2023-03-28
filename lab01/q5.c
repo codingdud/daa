@@ -9,7 +9,7 @@ int main(){
         prod=prod*arr[j];
     }
     for(int i=0;i<6;i++){
-        printf("\n%d--%d\n ",i,prod/arr[i]);
+        printf("\n%d--%d\n ",arr[i],prod/arr[i]);
     }
         
 }

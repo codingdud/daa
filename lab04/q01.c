@@ -3,11 +3,12 @@
 #include<time.h>
 int main(){
     time_t start,difference,t;
+     double time_consumed;
     srand((unsigned) time(&t));
 
     start=clock();
 
-    int length,x,l,h,m;
+    int step,length,x,l,h,m;
     printf("enter a length of array:");
     scanf("%d",&length);
 
@@ -23,25 +24,28 @@ int main(){
     //binery search
     x=rand() % length;
     lable:
-    l=0,h=length;
-    
-    while(l<h){
-        m=l+(h-l)/2;
-        if(x<arr[m]) h=m;
-        else if(x>arr[m]) l=m;
-        else{
-            printf(" %d ",m);
-            break;
-        } 
-    }
     printf("\nenter a x value for best or worst case:");
     scanf("%d",&x);
+    l=0,h=length;
+    start=clock();
+    step=0;
+    while(l<=h){
+        m=(l+h)/2;
+        if(x<arr[m]) h=m-1;
+        else if(x>arr[m]) l=m+1;
+        else{
+            printf("steps: %d ",step);
+            difference=clock()-start;
+            time_consumed = ((double)difference);
+             printf("\ntime consumed:%f\n", time_consumed);
+            break;
+        }
+        ++step;
+    }
     if(x) goto lable;
 
     free(arr);
-    difference=clock()-start;
-    double time_consumed = ((double)difference);
-    printf("\n%f\n", time_consumed);
+    
 
 }
 
